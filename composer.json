@@ -1,0 +1,20 @@
+{
+    "name": "fgsl/http",
+    "description": "Fgsl Http Requester",
+    "type": "component",
+    "keywords": [
+        "http",
+        "request",
+        "rest"
+    ],
+    "homepage": "https://github.com/fgsl/http",
+    "license": "AGPL-3.0-only",
+    "autoload": {
+        "psr-4": {
+            "Fgsl\\Http\\": "src/Fgsl/Http"
+        }
+    },
+    "require": {
+        "php": ">=5.6"
+    }
+}
