@@ -6,7 +6,7 @@ namespace Fgsl\Http;
  *
  * @author    Flávio Gomes da Silva Lisboa <flavio.lisboa@fgsl.eti.br.br>
  * @link      https://github.com/fgsl/http for the canonical source repository
- * @copyright Copyright (c) 2016 SERPRO (http://www.serpro.gov.br)
+ * @copyright Copyright (c) 2016 FGSLO (http://www.fgsl.eti.br)
  * @license   https://www.gnu.org/licenses/agpl.txt GNU AFFERO GENERAL PUBLIC LICENSE
  */
 class Http
