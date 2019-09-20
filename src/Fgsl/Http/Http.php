@@ -21,7 +21,7 @@ class Http
      */
     public static function request($url, $context, $jsonDecode = false)
     {
-        $response = file_get_contents($url, false, $context);
+        $response = @file_get_contents($url, false, $context);
         return ($jsonDecode ? json_decode($response) : $response);
     }
 
