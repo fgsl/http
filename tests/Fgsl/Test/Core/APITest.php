@@ -10,12 +10,14 @@
 namespace Fgsl\Test\Core;
 
 use Fgsl\Http\Http;
+use PHPUnit\Framework\TestCase;
+
 /**
  * 
  * @package    Fgsl
  * @subpackage Test
  */
-class APITest extends \PHPUnit_Framework_TestCase
+class APITest extends TestCase
 {
     /**
      * Base path of application
@@ -44,7 +46,10 @@ class APITest extends \PHPUnit_Framework_TestCase
         $ctx = Http::getContext('GET', null);
         @$response = Http::request("http://www.on.br/index.php/pt-br/busca.html", $ctx);
         
-        $this->assertContains('Tecnologia', $response);
-
+        $this->assertStringContainsString('Tecnologia', $response);
+        
+        @$response = Http::curl("http://www.on.br/index.php/pt-br/busca.html");
+        
+        $this->assertStringContainsString('Tecnologia', $response);
     }
 }
