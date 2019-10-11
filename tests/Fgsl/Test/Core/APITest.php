@@ -51,5 +51,9 @@ class APITest extends TestCase
         @$response = Http::curl("http://www.on.br/index.php/pt-br/busca.html");
         
         $this->assertStringContainsString('Tecnologia', $response);
+        
+        @$response = Http::curlFromShell("http://www.on.br/index.php/pt-br/busca.html");
+        
+        $this->assertStringContainsString('Tecnologia', $response);        
     }
 }

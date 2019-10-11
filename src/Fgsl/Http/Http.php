@@ -102,4 +102,25 @@ class Http
 
         return $contents;
     }
+    
+    /**
+     * Create and execute a HTTP request using CURL from shell
+     *
+     * @param string $url
+     * @param array $headers    [$header1, $header2,...]
+     * @param bool $ignoreSSL   ignore certificates
+     * @param array $options    [$option => $value,...]
+     * @return string
+     */
+    public static function curlFromShell(string $url, array $headers = [], bool $ignoreSSL = true, array $options = []): string
+    {
+        $command = "curl $url" . ($ignoreSSL ? ' -k' : '');
+        foreach($headers as $header){
+            $command .= ' -H "' . $header . '"'; 
+        }
+        foreach($options as $option){
+            $command .= " $option";
+        }        
+        return shell_exec($command);
+    }    
 }
