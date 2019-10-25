@@ -100,6 +100,10 @@ class Http
         $contents = curl_exec($c);
         curl_close($c);
 
+        if (is_bool($contents)){
+            $contents = "ERROR ON REQUEST $url";
+        }
+        
         return $contents;
     }
     
