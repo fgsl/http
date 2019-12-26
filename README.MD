@@ -1,34 +1,26 @@
 # Installation in a PHP project
 
-Add a composer.json file in your project root folder with following lines:
-
-    {
-        "require": {
-            "php": ">=5.6",
-            "fgsl\http": "1.0.0",
-    
-        },
-        "repositories" : [
-            {
-                "type" : "vcs",
-                "url": "https://gitbhub.com/fgsl/http.git"
-            }
-        ]
-}
+```php
+composer require fgsl/http
+```
 
 Run command:
 
-    composer install
+```bash
+composer install
+```
 
 For getting Composer: https://getcomposer.org/download/
 
 # Run unit tests
 
+```bash
 phpunit --bootstrap tests/bootstrap.php tests/Fgsl/Test/TestSuite.php
+```
 
 # How to use
 
-See sample below: 
+See below a sample of method `request`.
 
 ```php
 use Fgsl\Http\Http;
@@ -42,3 +34,8 @@ $this->assertContains('Tecnologia', $response);
 The variable `$ctx` receives a HTTP context, that is a resource with elements of HTTP protocol.
 
 The variable `$response` receives HTTP response text, according context defined by `$ctx`.
+
+Sometimes method `request` may not work. Then you can use method `curl`.
+
+See class `ApiTest` for more examples.
+
