@@ -44,16 +44,16 @@ class APITest extends TestCase
         $this->assertTrue(is_object($http));
         
         $ctx = Http::getContext('GET', null);
-        @$response = Http::request("http://www.on.br/index.php/pt-br/busca.html", $ctx);
+        @$response = Http::request("http://www.horalegalbrasil.mct.on.br/SincronismoPublico.html", $ctx);
         
-        $this->assertStringContainsString('Tecnologia', $response);
+        $this->assertStringContainsString('Sincronismo', $response);
         
-        @$response = Http::curl("http://www.on.br/index.php/pt-br/busca.html");
+        @$response = Http::curl("http://www.horalegalbrasil.mct.on.br/SincronismoPublico.html");
         
-        $this->assertStringContainsString('Tecnologia', $response);
+        $this->assertStringContainsString('Sincronismo', $response);
         
-        @$response = Http::curlFromShell("http://www.on.br/index.php/pt-br/busca.html");
+        @$response = Http::curlFromShell("http://www.horalegalbrasil.mct.on.br/SincronismoPublico.html");
         
-        $this->assertStringContainsString('Tecnologia', $response);        
+        $this->assertStringContainsString('Sincronismo', $response);        
     }
 }

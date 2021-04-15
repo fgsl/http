@@ -124,7 +124,11 @@ class Http
         }
         foreach($options as $option){
             $command .= " $option";
-        }        
-        return shell_exec($command);
+	}        
+	$response = shell_exec($command);
+	if ($response == null){
+             throw new \Exception('curl request has returned a null');		
+	}
+	return $response;
     }    
 }
