@@ -26,9 +26,9 @@ See below a sample of method `request`.
 use Fgsl\Http\Http;
 
 $ctx = Http::getContext('GET', null);
-@$response = Http::request("http://www.on.br/index.php/pt-br/busca.html", $ctx);
-
-$this->assertContains('Tecnologia', $response);
+@$response = Http::request("http://www.horalegalbrasil.mct.on.br/SincronismoPublico.html", $ctx);
+        
+$this->assertStringContainsString('Sincronismo', $response);
 ``` 
 
 The variable `$ctx` receives a HTTP context, that is a resource with elements of HTTP protocol.
