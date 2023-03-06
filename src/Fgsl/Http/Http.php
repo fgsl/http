@@ -18,12 +18,17 @@ class Http
      *
      * @param string $url
      * @param resource $context
+     * @throws TypeError if response is not a string
      * @return string HTTP response
      */
     public static function request(string $url, $context, bool $jsonDecode = false): string
     {
         $response = @file_get_contents($url, false, $context);
-        return ($jsonDecode ? json_decode($response) : $response);
+        $response = ($jsonDecode ? json_decode($response) : $response);
+        if (is_bool($response)){
+            throw new \TypeError('Return value must be of type string, bool returned');
+        }
+        return $response;
     }
 
     /**
