@@ -35,6 +35,8 @@ class APITest extends TestCase
         @$response = Http::curl("http://www.horalegalbrasil.mct.on.br/SincronismoPublico.html");
         
         $this->assertStringContainsString('Sincronismo', $response);
+
+        $this->assertEquals(200,Http::getLastResponseCode());
         
         @$response = Http::curlFromShell("http://www.horalegalbrasil.mct.on.br/SincronismoPublico.html");
         
