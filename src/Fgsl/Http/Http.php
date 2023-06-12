@@ -12,6 +12,12 @@ namespace Fgsl\Http;
  */
 class Http
 {
+    private static $responseCode = null;
+
+    public static function getLastResponseCode()
+    {
+        return self::$responseCode;
+    }
 
     /**
      * Send a HTTP request
@@ -103,6 +109,7 @@ class Http
             curl_setopt($c, $option, $value);
         }
         $contents = curl_exec($c);
+        self::$responseCode = curl_getinfo($c,CURLINFO_RESPONSE_CODE);
         curl_close($c);
 
         if (is_bool($contents)){
