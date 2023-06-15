@@ -101,6 +101,7 @@ class Http
         curl_setopt($c, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($c, CURLOPT_FOLLOWLOCATION, true);
         curl_setopt($c, CURLOPT_HTTPHEADER, $headers);
+        curl_setopt($c, CURLOPT_HEADEROPT, CURLHEADER_UNIFIED);
         if ($ignoreSSL) {
             curl_setopt($c, CURLOPT_SSL_VERIFYPEER, false);
             curl_setopt($c, CURLOPT_SSL_VERIFYHOST, false);
