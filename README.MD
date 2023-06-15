@@ -37,5 +37,4 @@ The variable `$response` receives HTTP response text, according context defined 
 
 Sometimes method `request` may not work. Then you can use method `curl`.
 
-See class `ApiTest` for more examples.
-
+See [ApiTest](./tests/Fgsl/Test/APITest.php) class for more examples.
